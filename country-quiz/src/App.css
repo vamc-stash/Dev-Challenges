@@ -1,0 +1,145 @@
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bolder;
+  font-size: 5vw;
+  letter-spacing: 0.125rem;
+}
+
+.title {
+  color: white;
+  font-weight: bolder;
+}
+
+.row-content {
+  width: 380px;
+  min-height: 400px;
+}
+
+.adventure {
+ float: right;
+ margin-top: -4rem;
+}
+
+.adventure > img {
+  width: 7rem;
+  height: 7rem;
+}
+
+.winner > img {
+  width: 12rem;
+  height: 12rem;
+}
+
+.display-card {
+  border-radius: 4%;
+  background: white;
+  padding: 1.5rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.question {
+  color: #003366;
+  font-weight: bolder;
+}
+
+.option {
+  color: #7979d2;
+  border: 2px solid #7979d2;
+  cursor: pointer;
+  margin-top: 1rem;
+  border-radius: 3%/18%;
+  padding: 0.4rem;
+}
+
+.option-hover:hover {
+  background-color: #f9a826;
+  border: 2px solid #f9a826;
+  color: white;
+}
+
+.option > :first-child{
+  font-weight: 500;
+}
+.option > :nth-child(2){
+  font-weight: 500;
+}
+
+.correct-option {
+  color: white;
+  background: #53c68c;
+  border: 2px solid #53c68c;
+}
+
+.wrong-option {
+  color: white;
+  background: #ff8080;
+  border: 2px solid #ff8080;
+}
+
+.status-icon {
+  float: right;
+}
+
+.flag {
+  width: 5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.next-btn {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  color: white;
+  background-color: #f9a826;
+  border: 2px solid #f9a826;
+  margin-left: 70%;
+  text-align: center;
+  border-radius: 8%/20%;
+  cursor: pointer;
+}
+
+.result-title {
+  color: #003366;
+  font-weight: bolder;
+  font-size: 250%;
+}
+
+.result-card {
+  text-align: center;
+  padding-top: 0rem;
+  padding-bottom: 1.5rem;
+}
+
+.result-msg {
+  color: #003366;
+  font-size: 100%;
+}
+  
+.result {
+  color: #53c68c;
+  font-weight: bolder;
+  font-size: 200%;
+}
+
+.restart-btn {
+  border: 2px solid #003366;
+  color: #003366;
+  font-weight: bold;
+  margin-top: 20%;
+  margin-left: 25%;
+  width: 50%;
+  padding: 2%;
+  border-radius: 4%/20%;
+  cursor: pointer;
+}
+
+.restart-btn:hover {
+  background: #003366;
+  color: white;
+}

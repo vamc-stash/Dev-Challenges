@@ -1,0 +1,4 @@
+export const NOT_ANSWERED = 'NOT_ANSWERED'
+export const ANSWERED_CORRECTLY = 'ANSWERED_CORRECTLY'
+export const ANSWERED_INCORRECTLY = 'ANSWERED_INCORRECTLY'
+export const CHOICES = ['A', 'B', 'C', 'D']
