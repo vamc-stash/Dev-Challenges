@@ -3,7 +3,7 @@
 ### This repository contains the solutions for the challenges on https://devchallenges.io
 
 
-### Frontend Section
+## Frontend Section
   - [Country Quiz](https://github.com/vamc-stash/Dev-Challenges/tree/master/country-quiz)(React)
   - [Weather App](https://github.com/vamc-stash/Dev-Challenges/tree/master/weather-app)(React)
 
@@ -32,4 +32,4 @@
   - To make a build to serve locally
     ```
     npm run build
-  ```
+    ```
