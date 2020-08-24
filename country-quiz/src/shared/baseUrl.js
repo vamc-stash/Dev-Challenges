@@ -1,1 +1,1 @@
-export const BASE_API = "https://restcountries.eu/rest/v2/"
+export const BASE_API = "https://cors-anywhere.herokuapp.com/https://restcountries.eu/rest/v2/"
