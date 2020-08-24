@@ -26,27 +26,27 @@ const WindStatus = ({wind_direction_compass, wind_speed}) => {
 	const deg = arrowDict[wind_direction_compass]
 
 	return(
-			<React.Fragment>
-				<div className="row p-1 h-25 justify-content-center">
-					<div className="col text-center">
-						Wind status
-					</div>
+		<React.Fragment>
+			<div className="row p-1 h-25 justify-content-center">
+				<div className="col text-center">
+				Wind status
 				</div>
-				<div className="row h-50 justify-content-center">
-					<div className="col text-center">
-						<Value>{wind_speed}</Value><Units>mph</Units>
-					</div>
+			</div>
+			<div className="row h-50 justify-content-center">
+				<div className="col text-center">
+				 <Value>{wind_speed}</Value><Units>mph</Units>
 				</div>
-				<div className="row p-2 h-25 justify-content-center">
-					<div className="col text-center">
-						<Arrow className="fa-stack" deg={deg}>
-							<i className="fa fa-circle fa-stack-2x" style={{"color":"#8c8c8c"}}/>
-							<i className="fa fa-location-arrow fa-stack-1x"/>
-						</Arrow>
-						<Direction>{wind_direction_compass}</Direction>
-					</div>
+			</div>
+			<div className="row p-2 h-25 justify-content-center">
+				<div className="col text-center">
+					<Arrow className="fa-stack" deg={deg}>
+						<i className="fa fa-circle fa-stack-2x" style={{"color":"#8c8c8c"}}/>
+						<i className="fa fa-location-arrow fa-stack-1x"/>
+					</Arrow>
+				 <Direction>{wind_direction_compass}</Direction>
 				</div>
-			</React.Fragment>
+			</div>
+		</React.Fragment>
 		)
 }
 
@@ -55,16 +55,16 @@ const Humidity = ({humidity}) => {
 	humidity = Math.ceil(humidity)
 
 	return(
-			<React.Fragment>
-				<div className="row p-1 h-25 justify-content-center">
-					<div className="col text-center">
-						Humidity
-					</div>
+		<React.Fragment>
+			<div className="row p-1 h-25 justify-content-center">
+				<div className="col text-center">
+				Humidity
 				</div>
-				<div className="row h-50 justify-content-center">
-					<div className="col text-center">
-						<Value>{humidity}</Value><Units>%</Units>
-					</div>
+			</div>
+			<div className="row h-50 justify-content-center">
+				<div className="col text-center">
+					<Value>{humidity}</Value><Units>%</Units>
+				</div>
 				</div>
 				<div className="row p-1 h-25">
 					<div className="col-6 offset-3">
@@ -80,16 +80,16 @@ const Humidity = ({humidity}) => {
 							</div>
 						</div>
 					</div>
-					<div className="w-100"/>
-					<Progress className="col-6 offset-3 rounded">
-						<Percentage className="rounded" humidity={humidity}/>
-					</Progress>
-					<div className="w-100"/>
-					<div className="col-6 offset-3">
-						<Per>%</Per>
-					</div>
-				</div>
-			</React.Fragment>
+				<div className="w-100"/>
+			 <Progress className="col-6 offset-3 rounded">
+			  <Percentage className="rounded" humidity={humidity}/>
+			 </Progress>
+			 <div className="w-100"/>
+			 <div className="col-6 offset-3">
+			  <Per>%</Per>
+			 </div>
+			</div>
+		</React.Fragment>
 		)
 }
 
@@ -98,18 +98,18 @@ const Visibility = ({visibility}) => {
 	visibility = visibility.toFixed(1)
 
 	return(
-			<React.Fragment>
-				<div className="row p-1 h-25 justify-content-center">
-					<div className="col text-center">
-						Visibility
-					</div>
+		<React.Fragment>
+			<div className="row p-1 h-25 justify-content-center">
+				<div className="col text-center">
+				Visibility
 				</div>
-				<div className="row h-75 justify-content-center">
-					<div className="col text-center">
-						<Value>{visibility}</Value><Units>miles</Units>
-					</div>
+			</div>
+			<div className="row h-75 justify-content-center">
+				<div className="col text-center">
+				 <Value>{visibility}</Value><Units>miles</Units>
 				</div>
-			</React.Fragment>
+			</div>
+		</React.Fragment>
 		)
 }
 
@@ -118,18 +118,18 @@ const AirPressure = ({air_pressure}) => {
 	air_pressure = Math.ceil(air_pressure)
 
 	return(
-			<React.Fragment>
-				<div className="row p-1 h-25 justify-content-center">
-					<div className="col text-center">
-						Air Pressure
-					</div>
+		<React.Fragment>
+			<div className="row p-1 h-25 justify-content-center">
+				<div className="col text-center">
+				Air Pressure
 				</div>
-				<div className="row h-75 justify-content-center">
-					<div className="col text-center">
-						<Value>{air_pressure}</Value><Units>mb</Units>
-					</div>
+			</div>
+			<div className="row h-75 justify-content-center">
+				<div className="col text-center">
+				 <Value>{air_pressure}</Value><Units>mb</Units>
 				</div>
-			</React.Fragment>
+			</div>
+		</React.Fragment>
 		)
 }
 
@@ -138,24 +138,24 @@ const TodayHighlights = (props) => {
 	const {wind_direction_compass, wind_speed, air_pressure, humidity, visibility} = props.info
 
 	return(
-			<div className="row justify-content-between align-items-center">
-				<div className="col-12">
-					<h4 className="mt-4">Today's Highlights</h4>
-				</div>
-				<div className="col-12 w-45 col-sm-5 mt-4 highlights">
-					<WindStatus wind_direction_compass={wind_direction_compass} wind_speed={wind_speed}/>
-				</div>
-				<div className="col-12 col-sm-5 mt-4 highlights">
-					<Humidity humidity={humidity}/>
-				</div>
-				<div className="w-100"></div>
-				<div className="col-12 col-sm-5 mt-4 highlights">
-					<Visibility visibility={visibility}/>
-				</div>
-				<div className="col-12 col-sm-5 mt-4 highlights">
-					<AirPressure air_pressure={air_pressure}/>
-				</div>
+		<div className="row justify-content-between align-items-center">
+			<div className="col-12">
+				<h4 className="mt-4">Today's Highlights</h4>
 			</div>
+			<div className="col-12 w-45 col-sm-5 mt-4 highlights">
+				<WindStatus wind_direction_compass={wind_direction_compass} wind_speed={wind_speed}/>
+			</div>
+			<div className="col-12 col-sm-5 mt-4 highlights">
+				<Humidity humidity={humidity}/>
+			</div>
+			<div className="w-100"></div>
+			<div className="col-12 col-sm-5 mt-4 highlights">
+				<Visibility visibility={visibility}/>
+			</div>
+			<div className="col-12 col-sm-5 mt-4 highlights">
+				<AirPressure air_pressure={air_pressure}/>
+			</div>
+		</div>
 		)
 }
 

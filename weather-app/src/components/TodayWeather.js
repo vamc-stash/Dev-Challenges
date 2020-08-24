@@ -22,12 +22,12 @@ const TodayTemp = ({temperature, scale}) => {
 	temperature = Math.ceil(temperature)
 
 	return(
-			<div className="row h-25">
-				<div className="col d-flex justify-content-center align-items-center">
-					<Temperature>{temperature}</Temperature>
-					{scale === 'celsius' ? <Degree>&#8451;</Degree> : <Degree>&#8457;</Degree>}
-				</div>
+		<div className="row h-25">
+			<div className="col d-flex justify-content-center align-items-center">
+			<Temperature>{temperature}</Temperature>
+			{scale === 'celsius' ? <Degree>&#8451;</Degree> : <Degree>&#8457;</Degree>}
 			</div>
+		</div>
 		)
 }
 
@@ -41,32 +41,27 @@ const WeatherState = ({weather_state, date, location}) => {
 	})
 
 	return(
-			<div className="row h-25">
-				<div className="col">
-
-					<div className="row h-50">
-						<div className="col d-flex justify-content-center align-items-center">
-						 <Weather>{weather_state}</Weather>
-						</div>
+		<div className="row h-25">
+			<div className="col">
+				<div className="row h-50">
+					<div className="col d-flex justify-content-center align-items-center">
+						<Weather>{weather_state}</Weather>
 					</div>
-
-					<div className="row h-25">
-						<div className="col d-flex justify-content-center align-items-center">
-						 <MyDate>Today&nbsp;&nbsp;&nbsp;&nbsp;</MyDate><span className="dot"></span><MyDate>&nbsp;&nbsp;&nbsp;&nbsp;{date}</MyDate>
-						</div>
+				</div>
+				<div className="row h-25">
+					<div className="col d-flex justify-content-center align-items-center">
+						<MyDate>Today&nbsp;&nbsp;&nbsp;&nbsp;</MyDate><span className="dot"></span><MyDate>&nbsp;&nbsp;&nbsp;&nbsp;{date}</MyDate>
 					</div>
-
-					<div className="row h-25">
-						<div className="col d-flex justify-content-center align-items-center">
-						 <Marker><span className="fa fa-map-marker"></span>&nbsp;&nbsp;{location}</Marker>
-						</div>
+				</div>
+				<div className="row h-25">
+					<div className="col d-flex justify-content-center align-items-center">
+					 <Marker><span className="fa fa-map-marker"></span>&nbsp;&nbsp;{location}</Marker>
 					</div>
-
 				</div>
 			</div>
-	)
+		</div>
+		)
 }
-
 
 
 const TodayWeather = (props) => {
@@ -76,11 +71,11 @@ const TodayWeather = (props) => {
 	const scale = props.tempScale
 
 	return(
-			<React.Fragment>
-				<CloudBackground weather_state_name={weather_state_name}/>
-				<TodayTemp temperature={the_temp} scale={scale}/>
-				<WeatherState weather_state={weather_state_name} date={applicable_date} location={location}/>
-			</React.Fragment>
+		<React.Fragment>
+			<CloudBackground weather_state_name={weather_state_name}/>
+			<TodayTemp temperature={the_temp} scale={scale}/>
+			<WeatherState weather_state={weather_state_name} date={applicable_date} location={location}/>
+		</React.Fragment>
 		)
 }
 

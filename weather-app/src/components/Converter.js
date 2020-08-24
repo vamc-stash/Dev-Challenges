@@ -24,14 +24,14 @@ const Converter = (props) => {
 		
 		props.onClick(scale)
 	}
- 
+	
 	return(
-			<div className="row mb-4 ">
-				<div className="col-12">
-					<Button onClick={() => handleClick('fahrenheit')} background={fbkg} color={fCol}>&#8457;</Button>
-					<Button onClick={() => handleClick('celsius')} background={cbkg} color={cCol}>&#8451;</Button>
-				</div>
+		<div className="row mb-4 ">
+			<div className="col-12">
+				<Button onClick={() => handleClick('fahrenheit')} background={fbkg} color={fCol}>&#8457;</Button>
+				<Button onClick={() => handleClick('celsius')} background={cbkg} color={cCol}>&#8451;</Button>
 			</div>
+		</div>
 		)
 }
 

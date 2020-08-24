@@ -15,44 +15,44 @@ const Init = () => {
 				const LON = position.coords.longitude
 
 				fetch(BASE_API + 'search/?lattlong=' + LAT + ',' + LON)
-					.then(res => {
-							if(res.ok) { 
-								return res; 
-							}
-							else {
-								var error = new Error('ERROR ' + res.status + ": " + res.statusText)
-								error.res = res
-								throw error
-							}
-						}, error => {
-							var errmsg = new Error(error.message)
-							throw errmsg
-						})
-					.then(res => res.json())
-					.then(data => {
-							console.log(data[0])
-							setWoeid(data[0].woeid)
-					})
-					.catch(error =>  { 
-							console.log(error.message)
-						 alert(error.message)
-					})
+				.then(res => {
+					if(res.ok) { 
+						return res; 
+					}
+					else {
+						var error = new Error('ERROR ' + res.status + ": " + res.statusText)
+						error.res = res
+						throw error
+					}
+				}, error => {
+					var errmsg = new Error(error.message)
+					throw errmsg
+				})
+				.then(res => res.json())
+				.then(data => {
+					console.log(data[0])
+					setWoeid(data[0].woeid)
+				})
+				.catch(error =>  { 
+					console.log(error.message)
+					alert(error.message)
+				})
 			}
 		}
 
-	const error = (err) => {
-		console.warn(`ERROR(${err.code}): ${err.message}`)
-	}
+		const error = (err) => {
+			console.warn(`ERROR(${err.code}): ${err.message}`)
+		}
 
 		navigator.geolocation.getCurrentPosition(success, error)
 	}, [woeid])
 	
 
 	return(
-			<div className="container-fluid d-flex">
-				{!woeid && <LoaderSpinner color={'#100e1d'} width={160} height={160}/>}
-				{woeid && <FetchWeather woeid={woeid}/>}
-			</div>
+		<div className="container-fluid d-flex">
+			{!woeid && <LoaderSpinner color={'#100e1d'} width={160} height={160}/>}
+			{woeid && <FetchWeather woeid={woeid}/>}
+		</div>
 		)
 }
 

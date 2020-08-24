@@ -10,11 +10,11 @@ const FormatDate = ({date, index}) => {
 	})
 
 	return(
-			<div className="row h-25">
-				<div className="col text-center">
-					{index === 0 ? "Tomorrow" : date}
-				</div>
+		<div className="row h-25">
+			<div className="col text-center">
+			{index === 0 ? "Tomorrow" : date}
 			</div>
+		</div>
 		)
 }
 
@@ -37,24 +37,24 @@ const WeatherForecast = ({info, tempScale}) => {
 				<div className="row h-25 justify-content-end">
 					<div className="col">
 						<MaxTemp>
-							{max_temp}
-							{tempScale === 'celsius' ? <span>&#8451;</span> : <span>&#8457;</span>}
+						{max_temp}
+						{tempScale === 'celsius' ? <span>&#8451;</span> : <span>&#8457;</span>}
 						</MaxTemp>
 						<MinTemp>
-							{min_temp}
-							{tempScale === 'celsius' ? <span>&#8451;</span> : <span>&#8457;</span>}
+						{min_temp}
+						{tempScale === 'celsius' ? <span>&#8451;</span> : <span>&#8457;</span>}
 						</MinTemp>
 					</div>
 				</div>
 			</div>
-		)
+			)
 	})
 
 	return(
 		<div className="row d-flex justify-content-between">
-			{weatherForecast}
+		{weatherForecast}
 		</div>
-	)
+		)
 }
 
 export default WeatherForecast;

@@ -12,28 +12,28 @@ const SearchInput = (props) => {
 
 	const LocationSearch = (location) => {
 		fetch(BASE_API + 'search/?query=' + location)
-			.then(res => {
-					if(res.ok) { 
-						return res; 
-					}
-					else {
-						var error = new Error('ERROR ' + res.status + ": " + res.statusText)
-						error.res = res
-						throw error
-					}
-				}, error => {
-					var errmsg = new Error(error.message)
-					throw errmsg
-				})
-			.then(res => res.json())
-			.then(data => {
-					console.log("selected locations", data)
-					setLocations(data)
-			})
-			.catch(error =>  { 
-					console.log(error.message)
-				 alert(error.message)
-			})
+		.then(res => {
+			if(res.ok) { 
+				return res; 
+			}
+			else {
+				var error = new Error('ERROR ' + res.status + ": " + res.statusText)
+				error.res = res
+				throw error
+			}
+		}, error => {
+			var errmsg = new Error(error.message)
+			throw errmsg
+		})
+		.then(res => res.json())
+		.then(data => {
+			console.log("selected locations", data)
+			setLocations(data)
+		})
+		.catch(error =>  { 
+			console.log(error.message)
+			alert(error.message)
+		})
 	}
 
 	const handleSubmit = (e) => {
@@ -57,21 +57,21 @@ const SearchInput = (props) => {
 							</div>
 						</div>
 					</InputGroup>
-					<ButtonGroup className="col-12 col-sm" type="submit">
-						Search
+			  <ButtonGroup className="col-12 col-sm" type="submit">
+					Search
 					</ButtonGroup>
 				</form>
 			</div>
 			{locations && locations.map((location, index) => {
 				return(
-						<Location className="col-12 mt-4" key={index}>
-							<div className="row justify-content-between align-items-center">
-								<div onClick={() => {props.handleSearch(location.woeid)}} className="col-10">
-									{location.title}
-								</div>
-								<div onClick={() => {props.handleSearch(location.woeid)}} className="col-1 mr-auto fa fa-chevron-right " style={{"color":"#8c8c8c"}}></div>
+					<Location className="col-12 mt-4" key={index}>
+						<div className="row justify-content-between align-items-center">
+							<div onClick={() => {props.handleSearch(location.woeid)}} className="col-10">
+							{location.title}
 							</div>
-						</Location>
+							<div onClick={() => {props.handleSearch(location.woeid)}} className="col-1 mr-auto fa fa-chevron-right " style={{"color":"#8c8c8c"}}></div>
+							</div>
+					</Location>
 					)
 			})}
 		</div>

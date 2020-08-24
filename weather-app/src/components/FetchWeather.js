@@ -37,29 +37,29 @@ const FetchWeather = (props) => {
 
 	useEffect(() => {
 		fetch(BASE_API + woeid + '/')
-			.then(res => {
-					if(res.ok) { 
-						return res; 
-					}
-					else {
-						var error = new Error('ERROR ' + res.status + ": " + res.statusText)
-						error.res = res
-						throw error
-					}
-				}, error => {
-					var errmsg = new Error(error.message)
-					throw errmsg
-				})
-			.then(res => res.json())
-			.then(data => {
-				setWeatherInfo(data.consolidated_weather)
-				setTitle(data.title)
-				setIsLoaded(true)
-			})
-			.catch(error =>  { 
-					console.log(error.message)
-				 alert(error.message)
-			})
+		.then(res => {
+			if(res.ok) { 
+				return res; 
+			}
+			else {
+				var error = new Error('ERROR ' + res.status + ": " + res.statusText)
+				error.res = res
+				throw error
+			}
+		}, error => {
+			var errmsg = new Error(error.message)
+			throw errmsg
+		})
+		.then(res => res.json())
+		.then(data => {
+			setWeatherInfo(data.consolidated_weather)
+			setTitle(data.title)
+			setIsLoaded(true)
+		})
+		.catch(error =>  { 
+			console.log(error.message)
+			alert(error.message)
+		})
 	}, [woeid])
 
 	const convertTemp = (tempUnit) => {
@@ -86,13 +86,13 @@ const FetchWeather = (props) => {
 	}
 
 	return(
-			<div className="row vw-100">
-				<div className="col-12 col-xl-4 left-col vh-100">
+		<div className="row vw-100">
+			<div className="col-12 col-xl-4 left-col vh-100">
 				{!isSearchClicked && 
-						<div className="row mt-2">
-								<Search onClick={() => toggleSearchBox()}/>
-								<Gps onClick={() => setCurrentLocation()}/>
-							</div>
+					<div className="row mt-2">
+						<Search onClick={() => toggleSearchBox()}/>
+						<Gps onClick={() => setCurrentLocation()}/>
+					</div>
 					}
 					{!isLoaded && <LoaderSpinner color={'white'} width={160} height={160}/>}
 					{isLoaded && !isSearchClicked && weatherInfo && <TodayWeather info={weatherInfo[0]} title={title} tempScale={tempScale}/>}
@@ -103,27 +103,27 @@ const FetchWeather = (props) => {
 					{isLoaded && <Converter onClick={(unit) => convertTemp(unit)}/>}
 					{isLoaded && weatherInfo && <WeatherForecast info={weatherInfo.slice(1)} tempScale={tempScale}/>}
 					{isLoaded && weatherInfo && <TodayHighlights info={weatherInfo[0]}/>}
-					<div className="row">
-						<Footer className="col-12">
-		     Made by{" "}
-		     <a
-		       href="https://github.com/vamc-stash"
-		       target="_blank"
-		       rel="noopener noreferrer"
-		     >
-		     <RefTag>vamsi</RefTag>
-		     </a>{" "}
-		     @
-		     <a href="https://devchallenges.io/" 
-		     target="_blank"
-		     rel="noopener noreferrer"
-		     >
-		     <RefTag>devchallenges.io</RefTag>
-		     </a>
-		   	</Footer>
-		   </div>
+				<div className="row">
+					<Footer className="col-12">
+						Made by{" "}
+						<a
+						href="https://github.com/vamc-stash"
+						target="_blank"
+						rel="noopener noreferrer"
+						>
+						<RefTag>vamsi</RefTag>
+						</a>{" "}
+						@
+						<a href="https://devchallenges.io/" 
+						target="_blank"
+						rel="noopener noreferrer"
+						>
+						<RefTag>devchallenges.io</RefTag>
+						</a>
+					</Footer>
 				</div>
 			</div>
+		</div>
 		)
 
 }
