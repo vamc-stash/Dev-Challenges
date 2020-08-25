@@ -5,7 +5,7 @@
 
 ## Frontend Section
   - <b>Country Quiz</b> - [Demo](http://violet-screw.surge.sh/)  [Code](https://github.com/vamc-stash/Dev-Challenges/tree/master/country-quiz)
-  - <b>Weather App</b> - [Demo](http://feeble-sneeze.surge.sh/)  [Code](https://github.com/vamc-stash/Dev-Challenges/tree/master/weather-app)
+  - <b>Weather App</b> - [Demo](http://last-news.surge.sh/)  [Code](https://github.com/vamc-stash/Dev-Challenges/tree/master/weather-app)
 
 ## Technologies Used
   - React
