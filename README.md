@@ -4,8 +4,11 @@
 
 
 ## Frontend Section
-  - [Country Quiz](https://github.com/vamc-stash/Dev-Challenges/tree/master/country-quiz)(React)
-  - [Weather App](https://github.com/vamc-stash/Dev-Challenges/tree/master/weather-app)(React)
+  - Country Quiz - <div class="button-group minor-group">
+                      <a href="http://violet-screw.surge.sh/" class="button primary">Demo</a>
+                      <a href="https://github.com/vamc-stash/Dev-Challenges/tree/master/country-quiz" class="button">Code</a>
+                  </div>
+  - Weather App - [Code](https://github.com/vamc-stash/Dev-Challenges/tree/master/weather-app)
 
 ## Technologies Used
   - React
