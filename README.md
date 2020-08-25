@@ -27,7 +27,7 @@
     ```
   - Run in development mode
     ```
-    npm run start
+    npm start
     ```
   - To make a build to serve locally
     ```
