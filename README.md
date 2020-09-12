@@ -23,7 +23,7 @@
     ```
   - Install the dependencies
     ```
-    npm install dependency-name
+    npm install
     ```
   - Run in development mode
     ```
