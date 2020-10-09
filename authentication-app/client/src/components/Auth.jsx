@@ -39,8 +39,8 @@ const FormComponent = (props) => {
 								value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
 								message: 'Invalid email address format'
 							}
-							})}
-							/>
+						})}
+						/>
 					</div>
 					<div className="input-group mb-2 border border-dark rounded">
 						<div className="input-group-prepend">
@@ -67,7 +67,7 @@ const FormComponent = (props) => {
 				</form>
 			</div>
 		</div>
-		)
+	)
 }
 
 const Auth = (props) => {

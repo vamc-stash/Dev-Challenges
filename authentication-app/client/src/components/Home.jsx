@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch, shallowEqual} from 'react-redux'
 import Header from './Header'
 import {Switch, Route, Redirect, withRouter, useRouteMatch} from 'react-router-dom'

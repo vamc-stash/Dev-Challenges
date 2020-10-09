@@ -18,13 +18,13 @@ router.options('*', cors.corsWithOptions, (req, res) => {res.sendStatus(200)})
 
 /* GET users listing. */
 router.get('/', cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
- User.find()
- .then((users) => {
- 	res.statusCode = 200
- 	res.setHeader('Content-Type', 'application/json')
- 	res.json(users)
- }, (err) => next(err))
- .catch((err) => next(err))
+	User.find()
+	.then((users) => {
+		res.statusCode = 200
+		res.setHeader('Content-Type', 'application/json')
+		res.json(users)
+	}, (err) => next(err))
+	.catch((err) => next(err))
 });
 
 router.post('/signup', cors.corsWithOptions, (req, res, next) => {
@@ -49,25 +49,25 @@ router.post('/login', cors.corsWithOptions, (req, res, next) => {
 		}
 
 		if (!user) {
-	res.statusCode = 401
-	res.setHeader('Content-Type', 'application/json')
-	res.json({success: false, status: 'Login Unsuccessful!', err: info})
-  }
+			res.statusCode = 401
+			res.setHeader('Content-Type', 'application/json')
+			res.json({success: false, status: 'Login Unsuccessful!', err: info})
+		}
 
-  req.logIn(user, (err) => {
-  	if (err) {
-  		res.statusCode = 401
-		res.setHeader('Content-Type', 'application/json')
-		res.json({success: false, status: 'Login Unsuccessful!', err: 'could not login the user :/'})
-  	}
-  	else {
-  		var token = authenticate.getToken({_id: req.user._id})
+		req.logIn(user, (err) => {
+			if (err) {
+				res.statusCode = 401
+				res.setHeader('Content-Type', 'application/json')
+				res.json({success: false, status: 'Login Unsuccessful!', err: 'could not login the user :/'})
+			}
+			else {
+				var token = authenticate.getToken({_id: req.user._id})
 
-  		res.statusCode = 200
-		res.setHeader('Content-Type', 'application/json')
-		res.json({success: true, status: 'Login Successful!', token: token})
-  	}
-  })
+				res.statusCode = 200
+				res.setHeader('Content-Type', 'application/json')
+				res.json({success: true, status: 'Login Successful!', token: token})
+			}
+		})
 	}) (req, res, next)
 })
 
@@ -158,7 +158,6 @@ router.get('/facebook/token', cors.corsWithOptions, passport.authenticate('faceb
 
 router.get('/github/code', cors.corsWithOptions, (req, res, next) => {
 
-	console.log(req)
 	const accessTokenUrl = `https://github.com/login/oauth/access_token?` + 
 		'client_id=' + stage.github.clientID +
 		'&client_secret=' + stage.github.clientSecret +

@@ -14,7 +14,6 @@ export const ConfigureStore = () => {
 			uploadFile: uploadFile
 		}),
 		applyMiddleware(thunk, logger)
-		)
-
+	)
 	return store
 }
