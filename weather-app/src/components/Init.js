@@ -42,6 +42,8 @@ const Init = () => {
 
 		const error = (err) => {
 			console.warn(`ERROR(${err.code}): ${err.message}`)
+			alert(`ERROR(${err.code}): ${err.message}`, "\nDefault location is set to Hyderabad, INDIA")
+			setWoeid(2295414)
 		}
 
 		navigator.geolocation.getCurrentPosition(success, error)
