@@ -1,15 +1,17 @@
-import React from 'react'
-import {useForm} from 'react-hook-form'
-import {Logo, Img, SocialButton} from './styledComponent'
-import {Link, Redirect, withRouter} from 'react-router-dom'
+import React, { useContext } from 'react'
+import { useForm } from 'react-hook-form'
+import { Logo, Img, PageWrapper } from './styledComponent'
+import { Link, Redirect, withRouter } from 'react-router-dom'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import GithubLogin from 'react-github-login'
 import TwitterLogin from "react-twitter-login"
-import {GoogleLogin} from 'react-google-login'
-import {FACEBOOK_APP_ID, GOOGLE_CLIENT_ID,  GITHUB_CLIENT_ID, TWITTER_CLIENT_ID, TWITTER_CLIENT_SECRET} from '../shared/constants'
+import { GoogleLogin } from 'react-google-login'
+import { FACEBOOK_APP_ID, GOOGLE_CLIENT_ID,  GITHUB_CLIENT_ID, TWITTER_CLIENT_ID, TWITTER_CLIENT_SECRET } from '../shared/constants'
+import { themes, ThemeContext } from '../context/ThemeContext'
 
 const FormComponent = (props) => {
 
+	const { theme } = useContext(ThemeContext)
 	const { register, handleSubmit, errors } =  useForm()
 
 	const onSubmitForm = (data) => {
@@ -19,20 +21,26 @@ const FormComponent = (props) => {
 		})
 	}
 
+	const themeStyle = {
+		'background': `${theme.background}`,
+		'color': `${theme.textColor}`
+	}
+
 	return(
 		<div className="row">
 			<div className="col-12">
-				<form role="form" className="w-100 h-100" onSubmit={handleSubmit(onSubmitForm)}>
-					<div className="input-group mb-2 border border-dark rounded">
+				<form className="w-100 h-100" onSubmit={handleSubmit(onSubmitForm)}>
+					<div className="input-group mb-2">
 						<div className="input-group-prepend">
-							<span className="input-group-text bg-white"><i className="fa fa-envelope"></i></span>
+							<span className="input-group-text input-box" style={themeStyle}><i className="fa fa-envelope"></i></span>
 						</div>
 						<input
 						type="email"
 						id="email"
 						name="email"
 						placeholder="Email"
-						className={`border-0 form-control ${errors.email ? 'is-invalid': ''}`}
+						className={`input-box border-left-0 form-control ${errors.email ? 'is-invalid': ''}`}
+						style={themeStyle}
 						ref={register({
 							required: true,
 							pattern: {
@@ -42,16 +50,17 @@ const FormComponent = (props) => {
 						})}
 						/>
 					</div>
-					<div className="input-group mb-2 border border-dark rounded">
+					<div className="input-group mb-2">
 						<div className="input-group-prepend">
-							<span className="input-group-text bg-white"><i className="fa fa-lock fa-lg"></i></span>
+							<span className="input-group-text input-box" style={themeStyle}><i className="fa fa-lock fa-lg"></i></span>
 						</div>
 						<input
 						type="password"
 						id="password"
 						name="password"
 						placeholder="Password"
-						className={`border-0 form-control ${errors.password ? 'is-invalid': ''}`}
+						className={`input-box border-left-0 form-control ${errors.password ? 'is-invalid': ''}`}
+						style={themeStyle}
 						ref={register({
 							required: true,
 							minLength: 3,
@@ -60,7 +69,7 @@ const FormComponent = (props) => {
 						/>
 					</div>
 					<div className="input-group-btn mb-2 rounded">
-						<button type="submit" className="btn btn-primary w-100">
+						<button type="submit" className="button-box btn btn-primary w-100">
 							{props.actionType}
 						</button>
 					</div>
@@ -72,6 +81,16 @@ const FormComponent = (props) => {
 
 const Auth = (props) => {
 	
+	const {theme, setTheme} = useContext(ThemeContext)
+	const themeStyle = {
+		'background': `${theme.background}`,
+		'color': `${theme.textColor}`,
+	}
+
+	const toggleTheme = () => {
+		theme === themes.light ? setTheme(themes.dark) : setTheme(themes.light)
+	}
+
 	if(props.auth.isAuthenticated) {
 		return <Redirect to="/home"/>
 	}
@@ -110,17 +129,28 @@ const Auth = (props) => {
 	}
 
 	return(
-		<div className="container-fluid w-100 vh-100 d-flex align-items-center justify-content-center">
+		<PageWrapper className="container-fluid w-100 vh-100 d-flex align-items-center justify-content-center" theme={theme}>
 			<div className="row row-content">
-				<div className="col-10 offset-1 col-md-6 offset-md-3 p-5 rounded border border-dark">	
+				<div className="col-10 offset-1 col-md-6 offset-md-3 p-5 main-box ">	
 					<div className="row mb-2">
 						<div className="col">
-							<Logo src="/assets/images/devchallenges.svg" alt="</> devchallenges"/>
+							<Logo src={theme.logoSrc} alt="</> devchallenges"/>
+						</div>
+						<div className="custom-control custom-switch">
+							<input 
+							type="checkbox" 
+							className="custom-control-input" 
+							style={themeStyle}
+							onChange={toggleTheme} 
+							id="customSwitch"
+							checked={theme.checked}
+							/>
+							<label class="custom-control-label" for="customSwitch"></label>
 						</div>
 					</div>
 					{props.action === 'register' &&
 						<React.Fragment>
-							<div className="row mb-2">
+							<div className="row mb-2" style={{'color': `${theme.textColor}`}}>
 								<div className="col-12">
 									<p><strong>Join thousands of learners from around the world</strong></p>
 									<p style={{"fontSize":"90%"}}>Master web development by making real-life projects. There are multiple paths for you to choose</p>
@@ -131,7 +161,7 @@ const Auth = (props) => {
 					}
 				 {props.action === 'login' &&
 				 	<React.Fragment>
-							<div className="row mb-2">
+							<div className="row mb-2" style={{'color': `${theme.textColor}`}}>
 								<div className="col-12">
 									<p><strong>Login</strong></p>
 							 </div>
@@ -140,7 +170,7 @@ const Auth = (props) => {
 						</React.Fragment>
 					}
 					<div className="row">
-						<div className="col d-flex justif2694872204099480y-content-center">
+						<div className="col d-flex justify-content-center">
 							<p style={{"fontSize":"80%"}}>or continue with these social profile</p>
 						</div>
 					</div>
@@ -200,7 +230,7 @@ const Auth = (props) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</PageWrapper>
 	)
 }
 

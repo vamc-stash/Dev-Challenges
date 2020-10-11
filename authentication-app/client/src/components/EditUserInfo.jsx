@@ -1,11 +1,18 @@
-import React from 'react'
-import {useForm} from 'react-hook-form'
-import {Label} from 'reactstrap'
-import {ProfileImg} from './styledComponent'
-import {Link} from 'react-router-dom'
+import React, { useContext } from 'react'
+import { useForm } from 'react-hook-form'
+import { Label } from 'reactstrap'
+import { ProfileImg } from './styledComponent'
+import { Link } from 'react-router-dom'
 import arrayBufferToBase64 from '../shared/helper'
+import { ThemeContext } from '../context/ThemeContext'
 
 const EditUserInfo = (props) => {
+
+	const { theme } = useContext(ThemeContext)
+	const themeStyle = {
+		'background': `${theme.background}`,
+		'color': `${theme.textColor}`
+	}
 
 	const user = props.user
 	let password = null
@@ -39,12 +46,12 @@ const EditUserInfo = (props) => {
 
 	return(
 		<div className="row justify-content-center">
-			<div className="col offset-lg-3 mb-4">
+			<div className="col offset-lg-3 mb-3">
 				<Link to="/home"><i className="fa fa-chevron-left"></i>  Back</Link>
 			</div>
 			<div className="w-100"></div>
-			<div className="col-lg-6 border rounded px-5 pt-4 py-4">
-				<div className="row">
+			<div className="col-lg-6 px-5 pt-4 py-4 mb-4 main-box">
+				<div className="row" style={{'color': `${themeStyle.color}`}}>
 					<div className="col">
 						<div className="heading">Change Info</div>
 						<div className="sub-heading">changes will be reflected to every services</div>
@@ -52,7 +59,7 @@ const EditUserInfo = (props) => {
 				</div>
 				<div className="row mt-4 align-items-center">
 					<div className="col-lg-2">
-						<form role="form" onChange={handleSubmit(onSubmitFile)}>
+						<form onChange={handleSubmit(onSubmitFile)}>
 							<div className="input-group mb-2">
 								<Label for="image" className="imageLabel">
 									<div className="imageDisplay">
@@ -82,7 +89,7 @@ const EditUserInfo = (props) => {
 				</div>
 				<div className="row">
 					<div className="col-lg-8">
-						<form role="form" className="w-100 h-100" onSubmit={handleSubmit(onSubmitForm)}>
+						<form className="w-100 h-100" onSubmit={handleSubmit(onSubmitForm)}>
 							<Label for="name" className="labelKey">Name</Label>
 							<div className="input-group mb-2">
 								<input
@@ -91,6 +98,7 @@ const EditUserInfo = (props) => {
 								name="name"
 								placeholder="Enter your name..."
 								className={`labelValue form-control ${errors.name ? 'is-invalid': ''}`}
+								style={ themeStyle }
 								ref={register({
 									pattern: {
 										value: /[A-Za-z]/,
@@ -109,6 +117,7 @@ const EditUserInfo = (props) => {
 								value={bio}
 								placeholder="Enter your bio..."
 								className={`labelValue form-control ${errors.bio ? 'is-invalid': ''}`}
+								style={themeStyle}
 								ref={register()}
 								/>
 							</div>
@@ -121,6 +130,7 @@ const EditUserInfo = (props) => {
 								value={phone}
 								placeholder="Enter your phone..."
 								className={`labelValue form-control ${errors.phone ? 'is-invalid': ''}`}
+								style={themeStyle}
 								ref={register({
 									pattern: {
 										value: /^[0-9]{6,12}$/,
@@ -138,6 +148,7 @@ const EditUserInfo = (props) => {
 								value={email}
 								placeholder="Email"
 								className={`labelValue form-control ${errors.email ? 'is-invalid': ''}`}
+								style={themeStyle}
 								ref={register({
 									pattern: {
 										value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
@@ -148,26 +159,19 @@ const EditUserInfo = (props) => {
 							</div>
 							<Label for="password" className="labelKey">password</Label>
 							<div className="input-group mb-2">
-								{password &&
-									<input
-									type="password"
-									id="password"
-									name="password"
-									placeholder="Password"
-									className={`labelValue form-control ${errors.password ? 'is-invalid': ''}`}
-									ref={register({
-										minLength: 3,
-										maxLength: 15
-									})}
-									/>
-								}
-								{!password && 
-									<input
-									placeholder="Password"
-									className={`labelValue form-control`}
-									disabled
-									/>
-								}
+								<input
+								type="password"
+								id="password"
+								name="password"
+								placeholder="Password"
+								className={`labelValue form-control ${errors.password ? 'is-invalid': ''}`}
+								style={themeStyle}
+								ref={register({
+									minLength: 3,
+									maxLength: 15
+								})}
+								disabled={!password}
+								/>
 							</div>
 							<div className="input-group-btn mb-2 rounded">
 								<button type="submit" className="btn btn-primary pl-4 pr-4">

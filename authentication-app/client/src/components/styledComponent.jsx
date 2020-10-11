@@ -25,3 +25,8 @@ border-radius: 10%;
 width: ${props => props.width ? props.width : '4rem'};
 height: ${props => props.height ? props.height : '4rem'};
 `
+export const PageWrapper = styled.div`
+background: ${props => props.theme.background};
+color: ${props => props.theme.foreground};
+min-height: 100vh;
+`

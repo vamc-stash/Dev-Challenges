@@ -1,15 +1,18 @@
-import React, {useState, useEffect} from 'react'
-import {useSelector, useDispatch, shallowEqual} from 'react-redux'
+import React, { useEffect, useContext } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import Header from './Header'
-import {Switch, Route, Redirect, withRouter, useRouteMatch} from 'react-router-dom'
-import {fetchUserInfo, updateUserInfo, uploadFile} from '../redux/actions/userProfile'
+import { PageWrapper } from './styledComponent'
+import { Switch, Route, Redirect, withRouter, useRouteMatch } from 'react-router-dom'
+import { fetchUserInfo, updateUserInfo, uploadFile } from '../redux/actions/userProfile'
 import UserInfo from './UserInfo'
 import EditUserInfo from './EditUserInfo'
 import Loading from './Loading'
 import ErrorMsg from './ErrorMsg'
+import { ThemeContext } from '../context/ThemeContext'
 
 const Home = (props) => {
 
+	const {theme} = useContext(ThemeContext)
 	let match = useRouteMatch()
 
 	const {isLoading, user, errMsg} = useSelector(state => state.userInfo)
@@ -39,7 +42,7 @@ const Home = (props) => {
 	}
 	else {
 		return(
-			<div className="container-fluid">
+			<PageWrapper className="container-fluid" theme={theme}>
 				<Header auth={props.auth} user={user} logout={props.logout}/>
 				<Switch>
 					<Route exact path={match.path}>
@@ -50,7 +53,7 @@ const Home = (props) => {
 					</Route>
 					<Redirect to="/home"/>
 				</Switch>
-			</div>
+			</PageWrapper>
 		)
 	}
 }

@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react'
-import {useSelector, useDispatch, shallowEqual} from 'react-redux'
-import {Switch, Route, Redirect, withRouter} from 'react-router-dom'
-import {TransitionGroup, CSSTransition} from 'react-transition-group'
-import {signUp} from '../redux/actions/signUp'
-import {login, socialLogin} from '../redux/actions/login'
-import {logout} from '../redux/actions/logout'
+import React from 'react'
+import { useSelector, useDispatch, shallowEqual } from 'react-redux'
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { signUp } from '../redux/actions/signUp'
+import { login, socialLogin } from '../redux/actions/login'
+import { logout } from '../redux/actions/logout'
 import Auth from './Auth'
 import Home from './Home'
 
@@ -31,7 +30,7 @@ const Main = () => {
 			<Switch>
 				<Route exact path='/' component={() => 
 					<Auth 
-					action='register' 
+					action='register'
 					auth={auth}
 					register={register}
 					signUp={(creds ) => dispatch(signUp(creds))}
