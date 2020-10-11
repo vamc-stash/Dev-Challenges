@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Header from './Header'
+import Footer from './Footer'
 import { PageWrapper } from './styledComponent'
 import { Switch, Route, Redirect, withRouter, useRouteMatch } from 'react-router-dom'
 import { fetchUserInfo, updateUserInfo, uploadFile } from '../redux/actions/userProfile'
@@ -53,6 +54,7 @@ const Home = (props) => {
 					</Route>
 					<Redirect to="/home"/>
 				</Switch>
+				<Footer/>
 			</PageWrapper>
 		)
 	}

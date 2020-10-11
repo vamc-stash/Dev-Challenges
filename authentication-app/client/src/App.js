@@ -10,18 +10,18 @@ const store = ConfigureStore()
 
 const App = () => {
 
-  const defaultTheme = useContext(ThemeContext)
-  const [theme, setTheme] = useState(defaultTheme)
+	const defaultTheme = useContext(ThemeContext)
+	const [theme, setTheme] = useState(defaultTheme)
 
-  return (
-    <Provider store = {store}>
-      <BrowserRouter>
-          <ThemeContext.Provider value={{ theme, setTheme }}>
-            <Main/>
-          </ThemeContext.Provider>
-      </BrowserRouter>
-    </Provider>
-  );
+	return (
+		<Provider store = {store}>
+			<BrowserRouter>
+				<ThemeContext.Provider value={{ theme, setTheme }}>
+					<Main/>
+				</ThemeContext.Provider>
+			</BrowserRouter>
+		</Provider>
+	);
 }
 
 export default App;

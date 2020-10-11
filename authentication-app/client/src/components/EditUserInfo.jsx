@@ -8,7 +8,7 @@ import { ThemeContext } from '../context/ThemeContext'
 
 const EditUserInfo = (props) => {
 
-	const { theme } = useContext(ThemeContext)
+	const {theme} = useContext(ThemeContext)
 	const themeStyle = {
 		'background': `${theme.background}`,
 		'color': `${theme.textColor}`
@@ -50,7 +50,7 @@ const EditUserInfo = (props) => {
 				<Link to="/home"><i className="fa fa-chevron-left"></i>  Back</Link>
 			</div>
 			<div className="w-100"></div>
-			<div className="col-lg-6 px-5 pt-4 py-4 mb-4 main-box">
+			<div className="col-lg-6 px-5 pt-4 py-4 main-box">
 				<div className="row" style={{'color': `${themeStyle.color}`}}>
 					<div className="col">
 						<div className="heading">Change Info</div>
@@ -136,8 +136,8 @@ const EditUserInfo = (props) => {
 										value: /^[0-9]{6,12}$/,
 										message: 'Invalid phone number format'
 									}
-									})}
-									/>
+								})}
+								/>
 							</div>
 							<Label for="email" className="labelKey">Email</Label>
 							<div className="input-group mb-2">
@@ -154,8 +154,8 @@ const EditUserInfo = (props) => {
 										value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
 										message: 'Invalid email address format'
 									}
-									})}
-									/>
+								})}
+								/>
 							</div>
 							<Label for="password" className="labelKey">password</Label>
 							<div className="input-group mb-2">

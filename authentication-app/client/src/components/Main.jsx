@@ -33,7 +33,7 @@ const Main = () => {
 					action='register'
 					auth={auth}
 					register={register}
-					signUp={(creds ) => dispatch(signUp(creds))}
+					signUp={(creds) => dispatch(signUp(creds))}
 					socialLogin={(accessURL, headerBody) => dispatch(socialLogin(accessURL, headerBody))}
 					/>}
 				/>	

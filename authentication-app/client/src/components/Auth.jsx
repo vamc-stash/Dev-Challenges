@@ -103,6 +103,9 @@ const Auth = (props) => {
 	}
 
 	const responseTwitter = (err, data) => {
+		if(err) {
+			return onFailure(err)
+		}
 		props.socialLogin('/users/twitter/token?oauth_token='+data.oauth_token+'&oauth_token_secret='+data.oauth_token_secret+'&user_id='+data.user_id, {'Content-Type': 'application/json', 'access_token': data.oauth_token})
 		.then(() => {
 			props.history.push('/home')
@@ -116,7 +119,7 @@ const Auth = (props) => {
 		})
 	}
 
-	const onSuccess = (res) => {
+	const responseGithub = (res) => {
 		props.socialLogin('/users/github/code?code='+res.code, {'Content-Type': 'application/json', 'access_token': res.code})
 		.then(() => {
 			props.history.push('/home')
@@ -131,7 +134,7 @@ const Auth = (props) => {
 	return(
 		<PageWrapper className="container-fluid w-100 vh-100 d-flex align-items-center justify-content-center" theme={theme}>
 			<div className="row row-content">
-				<div className="col-10 offset-1 col-md-6 offset-md-3 p-5 main-box ">	
+				<div className="col-10 offset-1 col-md-6 offset-md-3 p-5 main-box">	
 					<div className="row mb-2">
 						<div className="col">
 							<Logo src={theme.logoSrc} alt="</> devchallenges"/>
@@ -213,7 +216,7 @@ const Auth = (props) => {
 									<GithubLogin
 										clientId={GITHUB_CLIENT_ID}
 										redirectUri="" 
-										onSuccess={onSuccess}
+										onSuccess={responseGithub}
 										onFailure={onFailure}
 										className="social-button"
 										buttonText={<Img src="/assets/images/Gihub.svg" alt="Github"/>}

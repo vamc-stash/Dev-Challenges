@@ -41,7 +41,6 @@ uploadRouter.route('/')
 	.catch(err => next(err))
 })
 .post(cors.corsWithOptions, authenticate.verifyUser, upload.single('imageFile'), (req, res, next) => {
-	console.log("called here", req.body)
 	User.findByIdAndUpdate(req.user._id, {
 		$set: {
 			image: {

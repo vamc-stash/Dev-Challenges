@@ -95,8 +95,8 @@ router.get('/checkjwtspan', cors.corsWithOptions, (req, res, next) => {
 		}
 		else {
 			res.statusCode = 200
-		res.setHeader('Content-Type', 'application/json')
-		res.json({success: true, status: 'JWT Valid :)', user: user})
+			res.setHeader('Content-Type', 'application/json')
+			res.json({success: true, status: 'JWT Valid :)', user: user})
 		}
 	}) (req, res)
 })
