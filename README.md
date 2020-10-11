@@ -11,9 +11,11 @@
   - <b>Authentication App</b> - [Code](https://github.com/vamc-stash/Dev-Challenges/tree/master/authentication-app)
 
 ## Technologies Used
+  - JavaScript, HTML, CSS
   - React
   - Bootstrap
-  - CSS
+  - MongoDB
+  - Express
 
 ## Usage
   - clone the repository
