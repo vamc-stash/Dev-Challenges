@@ -7,7 +7,7 @@ mongoose.set('useNewUrlParser', true)
 
 module.exports = () => {
     mongoose.connect(`mongodb://${stage.mongoUrl}/${stage.mongoDb}`)
-    .then((db) => {
-        console.log(`connection to DB ${db.connections[0].name} is successful`)
-    }, err => console.error(err))
+        .then((db) => {
+            console.log(`connection to DB ${db.connections[0].name} is successful`)
+        }, err => console.error(err))
 }
