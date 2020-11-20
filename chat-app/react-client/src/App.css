@@ -1,0 +1,209 @@
+@media (min-width: 768px) {
+	.main-box {
+		border: 1px solid #BDBDBD;
+		box-sizing: border-box;
+		border-radius: 1.5rem;
+	}
+}
+@media (max-width: 768px) {
+	#sidePane {
+		display: none;
+	}
+}
+.leftViewHeader {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	letter-spacing: -0.035em;
+	color: #E0E0E0;
+}
+.leftViewContext {
+	height: 65vh;
+	overflow-y: auto;
+}
+.leftViewFooter {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: #120F13;
+	width: 25%;
+}
+.channel {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 1.1rem;
+	line-height: 1.5rem;
+	letter-spacing: -0.035em;
+	color: #E0E0E0;
+}
+.plus-icon, .times-icon {
+	color:#E0E0E0;
+	background-color: #252329;
+	font-size: 1rem;
+	padding: 0.3em 0.6em;
+	border-radius: 0.5em;
+	cursor: pointer;
+}
+.times-icon {
+	margin-right: -3rem;
+	margin-top: -0.5rem;
+	background-color: #120F13;
+	
+}
+.channelName {
+	text-transform: uppercase;
+}
+.channelDescription {
+	font-weight: normal;
+	font-size: 1rem;
+}
+.channelMember {
+	font-weight: normal;
+	color: #828282;
+}
+.searchBox {
+	background: #3C393F;
+	border-radius: 8px;
+}
+.rightView {
+	background: #252329;
+	font-style: normal;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	letter-spacing: -0.035em;
+	color: #E0E0E0;
+}
+.rightViewHeader {
+	height: 8vh;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.mainContent {
+	height: 75vh;
+	overflow-y: auto;
+}
+.mainContent::-webkit-scrollbar {
+	display: none;
+}
+.member {
+	font-weight: bold;
+	color: #828282;
+}
+.msgTime {
+	font-weight: 500;
+	font-size: 0.8rem;
+	color: #828282;
+}
+.msg {
+	font-size: 1.1rem;
+	overflow-wrap: break-word;
+}
+.msgDiv {
+	height: 3rem;
+}
+.msgDiv > input {
+	border-radius: 8px;
+	width: 95%;
+	border: none;
+	color: #FFFFFF;
+	background-color: #3C393F;
+}
+.msgsDivider {
+	background: #828282;
+	height: 1px;
+}
+.msgsDate {
+	/* background: red; */
+	font-weight: 500;
+	font-size: 0.8rem;
+	color: #828282; 
+}
+.createChannel {
+	background: #120F13;
+	border-radius: 24px;
+	color: #F2F2F2;
+}
+.modalTitle {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	letter-spacing: -0.035em;
+}
+.modalInput {
+	width: 100%;
+	background: #3C393F;
+	border-radius: 8px;
+	border: none;
+}
+.leftMainContent {
+	height: 25vh;
+	overflow-y: auto;
+}
+.channels-view, .channel-abbreviation {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 25px;
+	letter-spacing: -0.035em;
+	text-transform: uppercase;
+	color: #BDBDBD;
+	cursor: pointer;
+}
+.channel-abbreviation {
+	text-align: center;
+	background: #252329;
+	border-radius: 8px;
+	padding: 8px;
+}
+.searchIcon {
+	color: #FFFFFF;
+}
+.searchInput {
+	background: #3C393F;
+	color: #FFFFFF;
+	border-radius: 8px;
+	border: none;
+	padding: 4px;
+}
+.username {
+	position: relative;
+	left: 100%;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	letter-spacing: -0.035em;
+	color: #BDBDBD;
+}
+.imageLabel {
+	position: relative;
+	cursor: pointer;
+}
+.imageDisplay {
+	position: absolute;
+}
+.cameraIcon {
+	position: absolute;
+	top: 0.5rem;
+	left: 0.6rem;
+	color: white;
+	opacity: 0;
+}
+.cameraIcon:hover {
+	opacity: 1;
+}
+.logout-icon {
+	color: red;
+	float: right;
+	cursor: pointer;
+}
+
+*:focus {
+  outline: 0 !important;
+ }
+body::-webkit-scrollbar {
+	display: none;
+}
