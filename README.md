@@ -9,6 +9,7 @@
   
 ## Full-stack Section
   - <b>Authentication App</b> - [Code](https://github.com/vamc-stash/Dev-Challenges/tree/master/authentication-app)
+  - <b>Chat Group App</b> - [Code](https://github.com/vamc-stash/Dev-Challenges/tree/master/chat-app)
 
 ## Technologies Used
   - JavaScript, HTML, CSS
